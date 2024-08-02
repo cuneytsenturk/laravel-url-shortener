@@ -1,6 +1,6 @@
 <?php
 
-namespace Akaunting\Menu;
+namespace CuneytSenturk\UrlShortener;
 
 use Illuminate\Support\ServiceProvider;
 

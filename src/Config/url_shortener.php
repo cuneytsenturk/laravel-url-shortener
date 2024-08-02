@@ -62,8 +62,8 @@ return [
     'database' => [
         'connection'    => null,
         'table'         => 'url_shortener',
-        'key'           => 'key',
-        'value'         => 'value',
+        'key'           => 'orjinal_url',
+        'value'         => 'short_url',
     ],
 
     /*
