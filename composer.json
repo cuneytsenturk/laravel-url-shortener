@@ -1,0 +1,53 @@
+{
+    "name": "cuneytsenturk/laravel-url-shortener",
+    "description": "Laravel URL Shortener",
+    "keywords": [
+        "laravel",
+        "url",
+        "shortener",
+        "sort url"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Cüneyt Şentürk",
+            "email": "cneytsenturk@gmail.com",
+            "homepage": "https://cuneytsenturk.com.tr",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "ext-json": "*",
+        "balping/json-raw-encoder": "^1.0",
+        "illuminate/support": "^9.0|^10.0|^11.0"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.5",
+        "phpunit/phpunit": "^9.5|^10.0|^11.0",
+        "orchestra/testbench": "^7.4|^8.0|^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "CuneytSenturk\\UrlShortener\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CuneytSenturk\\UrlShortener\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "CuneytSenturk\\UrlShortener\\Provider"
+            ],
+            "aliases": {
+                "UrlShortener": "CuneytSenturk\\UrlShortener\\Facade"
+            }
+        }
+    }
+}
