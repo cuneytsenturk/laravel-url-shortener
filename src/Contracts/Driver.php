@@ -31,6 +31,10 @@ abstract class Driver
 
     public function encode($url)
     {
+        if (empty($url)) {
+            return $url;
+        }
+
         $short_url = config('url_shortener.base_url') . '/' . Str::random(config('url_shortener.length'));
 
         $this->set($url, $short_url);

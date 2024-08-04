@@ -31,17 +31,11 @@ class Arr
             return static::getArray($data, $key, $default);
         }
 
-        foreach (explode('.', $key) as $segment) {
-            if (!is_array($data)) {
-                return $default;
-            }
-
-            if (!array_key_exists($segment, $data)) {
-                return $default;
-            }
-
-            $data = $data[$segment];
+        if (! in_array($key, $data)) {
+            return $default;
         }
+
+        $data = array_search($key, $data);
 
         return $data;
     }
@@ -67,17 +61,11 @@ class Arr
      */
     public static function has(array $data, $key)
     {
-        foreach (explode('.', $key) as $segment) {
-            if (!is_array($data)) {
-                return false;
-            }
-
-            if (!array_key_exists($segment, $data)) {
-                return false;
-            }
-
-            $data = $data[$segment];
+        if (! in_array($key, $data)) {
+            return false;
         }
+
+        $data = array_search($key, $data);
 
         return true;
     }
@@ -91,7 +79,7 @@ class Arr
      */
     public static function set(array &$data, $key, $value)
     {
-        $segments = explode('.', $key);
+        $segments = [$key];
 
         $key = array_pop($segments);
 
@@ -117,7 +105,7 @@ class Arr
      */
     public static function forget(array &$data, $key)
     {
-        $segments = explode('.', $key);
+        $segments = [$key];
 
         $key = array_pop($segments);
 
