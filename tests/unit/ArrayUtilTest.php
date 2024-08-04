@@ -2,7 +2,8 @@
 
 use CuneytSenturk\UrlShortener\Support\Arr;
 
-class ArrayUtilityTest extends PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+class ArrayUtilityTest extends TestCase
 {
     /**
      * @test

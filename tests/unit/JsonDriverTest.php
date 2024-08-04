@@ -1,8 +1,9 @@
 <?php
 
 use Mockery as m;
+use PHPUnit\Framework\TestCase;
 
-class JsonDriverTest extends PHPUnit_Framework_TestCase
+class JsonDriverTest extends TestCase
 {
     public function tearDown()
     {
@@ -16,7 +17,7 @@ class JsonDriverTest extends PHPUnit_Framework_TestCase
 
     protected function makeStore($files, $path = 'fakepath')
     {
-        return new CuneytSenturk\UrlShortener\Drivers\Json($files, $path);
+        return new \CuneytSenturk\UrlShortener\Drivers\Json($files, $path);
     }
 
     /**

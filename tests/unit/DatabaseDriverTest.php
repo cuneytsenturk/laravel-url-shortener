@@ -1,8 +1,9 @@
 <?php
 
+use PHPUnit\Framework\TestCase;
 use Mockery as m;
 
-class DatabaseDriverTest extends PHPUnit_Framework_TestCase
+class DatabaseDriverTest extends TestCase
 {
     public function tearDown()
     {

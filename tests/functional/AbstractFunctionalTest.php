@@ -2,7 +2,8 @@
 
 use CuneytSenturk\UrlShortener\Drivers\Database;
 
-abstract class AbstractFunctionalTest extends PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+abstract class AbstractFunctionalTest extends TestCase
 {
     abstract protected function createStore(array $data = []);
 
