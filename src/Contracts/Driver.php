@@ -29,13 +29,17 @@ abstract class Driver
      */
     protected $loaded = false;
 
-    public function encode($url)
+    public function encode($url, $default = null)
     {
         if (empty($url)) {
             return $url;
         }
 
-        $short_url = config('url_shortener.base_url') . '/' . Str::random(config('url_shortener.length'));
+        $short_url = $default;
+
+        if (empty($default)) {
+            $short_url = config('url_shortener.base_url') . '/' . Str::random(config('url_shortener.length'));
+        }
 
         $this->set($url, $short_url);
 
@@ -44,9 +48,9 @@ abstract class Driver
         return $short_url;
     }
 
-    public function decode($url)
+    public function decode($url, $default = null)
     {
-        return $this->get($url);
+        return $this->get($url, $default);
     }
 
     /**
@@ -83,6 +87,20 @@ abstract class Driver
         } else {
             Arr::set($this->data, $key, $value);
         }
+    }
+
+    /**
+     * Determine if a key exists in the settings data.
+     *
+     * @param string $key
+     *
+     * @return bool
+     */
+    public function has($key)
+    {
+        $this->load();
+
+        return Arr::has($this->data, $key);
     }
 
     /**

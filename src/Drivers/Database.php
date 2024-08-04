@@ -67,7 +67,7 @@ class Database extends Driver
     public function __construct(Connection $connection, $table = null, $key = null, $value = null, $encrypted_keys = [])
     {
         $this->connection = $connection;
-        $this->table = $table ?: 'settings';
+        $this->table = $table ?: 'url_shortener';
         $this->key = $key ?: 'key';
         $this->value = $value ?: 'value';
         $this->encrypted_keys = $encrypted_keys ?: [];
@@ -198,7 +198,7 @@ class Database extends Driver
     }
 
     /**
-     * Transforms settings data into an array ready to be insterted into the
+     * Transforms url_shortener data into an array ready to be insterted into the
      * database. Call array_dot on a multidimensional array before passing it
      * into this method!
      *
