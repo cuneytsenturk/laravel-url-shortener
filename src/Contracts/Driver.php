@@ -5,6 +5,7 @@ namespace CuneytSenturk\UrlShortener\Contracts;
 use CuneytSenturk\UrlShortener\Support\Arr;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
+use InvalidArgumentException;
 
 abstract class Driver
 {
@@ -35,6 +36,10 @@ abstract class Driver
             return $url;
         }
 
+        if (!filter_var($url, FILTER_VALIDATE_URL)) {
+            throw new InvalidArgumentException("Invalid URL provided");
+        }
+
         $short_url = $default;
 
         if (empty($default)) {
@@ -50,6 +55,14 @@ abstract class Driver
 
     public function decode($url, $default = null)
     {
+        if (empty($url)) {
+            return $url;
+        }
+
+        if (!filter_var($url, FILTER_VALIDATE_URL)) {
+            throw new InvalidArgumentException("Invalid URL provided");
+        }
+
         return $this->get($url, $default);
     }
 
