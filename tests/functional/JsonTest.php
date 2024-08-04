@@ -22,8 +22,10 @@ class JsonTest extends AbstractFunctionalTest
         );
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
+        parent::tearDown();
+
         $path = dirname(__DIR__) . '/tmp/store.json';
         unlink($path);
     }

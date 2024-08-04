@@ -2,8 +2,10 @@
 
 class DatabaseTest extends AbstractFunctionalTest
 {
-    public function setUp()
+    public function setUp(): void
     {
+        parent::setUp();
+
         $this->container = new \Illuminate\Container\Container();
         $this->capsule = new \Illuminate\Database\Capsule\Manager($this->container);
         $this->capsule->setAsGlobal();
@@ -20,8 +22,10 @@ class DatabaseTest extends AbstractFunctionalTest
         });
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
+        parent::tearDown();
+
         $this->capsule->schema()->drop('url_shortener');
         unset($this->capsule);
         unset($this->container);

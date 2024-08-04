@@ -5,8 +5,10 @@ use PHPUnit\Framework\TestCase;
 
 class JsonDriverTest extends TestCase
 {
-    public function tearDown()
+    public function tearDown(): void
     {
+        parent::tearDown();
+
         m::close();
     }
 

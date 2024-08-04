@@ -8,8 +8,10 @@ class HelperTest extends TestCase
 {
     public static $functions;
 
-    public function setUp()
+    public function setUp(): void
     {
+        parent::setUp();
+
         self::$functions = m::mock();
 
         Container::setInstance(new Container());

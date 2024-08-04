@@ -5,8 +5,10 @@ use Mockery as m;
 
 class DatabaseDriverTest extends TestCase
 {
-    public function tearDown()
+    public function tearDown(): void
     {
+        parent::tearDown();
+
         m::close();
     }
 
