@@ -39,7 +39,10 @@
     "autoload-dev": {
         "psr-4": {
             "CuneytSenturk\\UrlShortener\\Tests\\": "tests"
-        }
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     },
     "extra": {
         "laravel": {
